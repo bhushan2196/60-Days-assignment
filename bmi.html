@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <p>Enter your weight and height below to check your BMI result</p>
+    <label for="">Put your weight in here (KG)</label>
+    <br>
+    <input type="number" id="weight">
+    <br><br>
+    <label for="">Put your height in here (M)</label>
+    <br>
+    <input type="number" id="height">
+    <br>
+    <button id="btn">Calculate BMI</button>
+    <span style="color: black; font-weight: 500;"></span>
+    <p id="message"></p>
+    <script>
+        let btn=document.querySelector('#btn')
+        let height=document.querySelector('#height')
+        let weight=document.querySelector('#weight')
+        let msg=document.querySelector("#message")
+
+        let BMI=0
+        let typeOfWeight=""
+        let color=""
+
+        btn.addEventListener("click", calcBMI)
+
+        function calcBMI(){
+            
+           BMI=(Number(weight.value))/(Number(height.value) * Number(height.value))
+
+           if(BMI<=18.4){
+            typeOfWeight="under weight"
+            color="#003C43"
+
+           }
+           else if(BMI>=18.5 && BMI<= 24.9){
+            typeOfWeight="Normal weight"
+            color="green"
+           }
+           else if(BMI >= 25 && BMI <= 29.9){
+            typeOfWeight="over weight"
+            color="red"
+           }
+           else if(BMI>=30.0){
+            typeOfWeight="obese"
+           }
+           msg.innerHTML=`Your BMI is ${BMI.toFixed(2)} which means you are <h3  style="color:${color}; font-weight: 500; display:inline-block" >${typeOfWeight} </h3>`
+        }
+       
+
+    </script>
+</body>
+</html>
