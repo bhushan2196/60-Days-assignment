@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function toLimit(limit) {
+        for (let i = 1; i <= limit; i++) {
+          if (!prime(i)) {
+            console.log(i);
+          }
+        }
+      }
+
+      toLimit(100);
+
+      function prime(num) {
+        if (num <= 1) return false;
+
+        for (let i = 2; i < num; i++) {
+          if (num % i == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
